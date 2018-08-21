@@ -4,25 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.jr.ob.JSON;
 
-@Controller
-public class GreetingController {
+@RestController
+public class DataController {
 
-	@RequestMapping("/greeting")
-	public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String user, Model model) {
-    	System.out.println("Request received");
-//		if(null==user || user.isEmpty())
-//			user = "World";
-		model.addAttribute("name",user);
-		return "greetings";
-	}
-	
-	/*@RequestMapping("/data")
+	@RequestMapping("/data")
 	public String getData() {
 		JSON json = new JSON();		
 		System.out.println("data invoked! "+json.toString());
 		return json.toString();
-	}*/
+	}
 }
